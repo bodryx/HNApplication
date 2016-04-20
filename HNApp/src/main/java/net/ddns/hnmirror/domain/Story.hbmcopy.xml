@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	<class name="logic.Story" table="STORIES">
+		<id name="id" type="int">
+			<column name="ID" precision="10" scale="0"/>
+			<generator class="native"/>
+		</id>
+		
+		<property name="itemId" type="int"> 
+			<column name="ITEM_ID"  precision="10" scale="0" not-null="true"/>
+		</property>
+		
+		<property name="title" type="string"> 
+			<column name="TITLE" length="500" not-null="true"/>
+		</property>
+		
+		<property name="author" type="string">
+			<column name="AUTHOR" length="30" not-null="true"/>
+		</property>
+		
+		<property name="text" type="string">
+			<column name="TEXT" length="3000"/>
+		</property>
+	  
+		<property name="url" type="string">
+			<column name="URL" length="500" not-null="true"/>
+		</property>
+		
+		<property name="type" type="string">
+			<column name="TYPE" length="8" not-null="true"/>
+		</property>
+		
+		<property name="time" type="int">
+			<column name="TIME"  precision="12" scale="0" not-null="true"/>
+		</property>
+		
+		<property name="score" type="int">
+			<column name="SCORE" length="6"/>
+		</property>
+		
+   </class>
+</hibernate-mapping>
