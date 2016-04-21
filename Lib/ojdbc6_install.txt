@@ -1,0 +1,14 @@
+<dependency>
+     <groupId>com.oracle</groupId>
+     <artifactId>ojdbc6</artifactId>
+     <version>11.2.0.3</version>
+ </dependency>
+
+
+Steps:
+
+	Download the jdbc6.jar from the Oracle website. I tried to automate this step via a Groovy script but this pesky agreement radio-button gets 
+in the way (which is there for a reason to be fair) 
+	Supposing mvn is already setup in your path:
+
+mvn install:install-file -Dfile=ojdbc6.jar -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.3 -Dpackaging=jar -DgeneratePom=true
