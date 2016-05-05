@@ -18,7 +18,7 @@ public class App {
 	private static long updateFrequency;
 	private static String ipWebSrv;
 	private static long portWebSrv;
-	public static final String configPath = "C:\\IDES\\ConfigFiles\\"; // ""
+	public static final String configPath = "";  // "C:\\IDES\\ConfigFiles\\"; or  ""
 
 	public App() {
 		try {

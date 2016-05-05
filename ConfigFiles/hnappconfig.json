@@ -1,5 +1,5 @@
 {
-  "ipWebSrv": "192.168.1.220",
+  "ipWebSrv": "192.168.1.9",
   "portWebSrv": 61616,
   "updateFrequency": 10 
 }
