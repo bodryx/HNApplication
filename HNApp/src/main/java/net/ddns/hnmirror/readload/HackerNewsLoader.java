@@ -35,7 +35,7 @@ public class HackerNewsLoader {
 			System.out.println("fileName = " + fileName);
 			File file = new File(fileName);
 
-			// if file doesnt exists, then create it
+			// if file doesn't exists, then create it
 			if (!file.exists()) {
 				file.createNewFile();
 			}
@@ -69,6 +69,8 @@ public class HackerNewsLoader {
 						st1.setType((String) jsonObject.get("type"));
 						st1.setTime((long) jsonObject.get("time"));
 						st1.setScore((long) jsonObject.get("score"));
+						
+						
 						Factory.getInstance().getStoryDAO().addStory(st1);
 						System.out.println("i= " + i);
 
