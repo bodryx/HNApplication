@@ -31,9 +31,7 @@ public class HackerNewsLoader {
 			DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
 			Date date = new Date();
 			String dateStr = dateFormat.format(date);
-			String fileName = "new_stories_" + dateStr + ".log"; // "C:\\IDES\\HNMirrorLogs\\new_stories_"
-																	// + dateStr
-																	// + ".log";
+			String fileName = "new_stories_" + dateStr + ".log"; 
 			System.out.println("fileName = " + fileName);
 			File file = new File(fileName);
 
@@ -45,7 +43,7 @@ public class HackerNewsLoader {
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter bw = new BufferedWriter(fw);
 			String content = null;
-			String titleTmp = "", authorTmp = "", textTmp = "", urlTmp = "";
+			String titleTmp, authorTmp, textTmp, urlTmp;
 			for (int i = 0; i < newStoriesArray.size(); i++) {
 				JSONObject jsonObject = storiesReader.getStory((long) newStoriesArray.get(i));
 				if (jsonObject != null) {
@@ -62,29 +60,41 @@ public class HackerNewsLoader {
 						st1.setItemId((long) jsonObject.get("id"));
 
 						titleTmp = (String) jsonObject.get("title");
-						if (titleTmp.length() > 500)
-							st1.setTitle(titleTmp.substring(0, 500)); // 500
-						else
+						if (titleTmp != null) {
+							if (titleTmp.length() > 500)
+								st1.setTitle(titleTmp.substring(0, 500)); // 500
+							else
+								st1.setTitle(titleTmp);
+						} else
 							st1.setTitle(titleTmp);
-						
+
 						authorTmp = (String) jsonObject.get("by");
-						if (authorTmp.length() > 30)
-							st1.setAuthor(authorTmp.substring(0, 30)); // 30
-						else
+						if (authorTmp != null) {
+							if (authorTmp.length() > 30)
+								st1.setAuthor(authorTmp.substring(0, 30)); // 30
+							else
+								st1.setAuthor(authorTmp);
+						} else
 							st1.setAuthor(authorTmp);
-						
+
 						textTmp = (String) jsonObject.get("text");
-						if (textTmp.length() > 3000)
-							st1.setText(textTmp.substring(0, 3000)); // 3000
-						else
+						if (textTmp != null) {
+							if (textTmp.length() > 3000)
+								st1.setText(textTmp.substring(0, 3000)); // 3000
+							else
+								st1.setText(textTmp);
+						} else
 							st1.setText(textTmp);
-						
+
 						urlTmp = (String) jsonObject.get("url");
-						if (urlTmp.length() > 500)
-							st1.setUrl(urlTmp.substring(0, 500)); // 500
-						else
+						if (urlTmp != null) {
+							if (urlTmp.length() > 500)
+								st1.setUrl(urlTmp.substring(0, 500)); // 500
+							else
+								st1.setUrl(urlTmp);
+						} else
 							st1.setUrl(urlTmp);
-						
+
 						st1.setType((String) jsonObject.get("type"));
 						st1.setTime((long) jsonObject.get("time"));
 						st1.setScore((long) jsonObject.get("score"));
