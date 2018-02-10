@@ -45,7 +45,7 @@ public class HackerNewsLoader {
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter bw = new BufferedWriter(fw);
 			String content = null;
-			String titleTmp, authorTmp, textTmp, urlTmp;
+			String titleTmp = "", authorTmp = "", textTmp = "", urlTmp = "";
 			for (int i = 0; i < newStoriesArray.size(); i++) {
 				JSONObject jsonObject = storiesReader.getStory((long) newStoriesArray.get(i));
 				if (jsonObject != null) {
